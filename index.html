@@ -9,27 +9,34 @@
 
 <body>
         <header>
-          <h1>Code Quiz</h1>
-
-    <div id="Quiz"></div>
+            <h1>Code Quiz</h1>
+<br>
+ <div id='container'> 
+      <strong>
+            <div id='start'>Start Quiz!</div>
+        </strong>
+        
+              <div id='start' style='display: none'>
+          <div id='Quiz' style="display: body">
+      <div id='question'></div>
+      <div id='qimg'></div>
+      <div id='choices'>
+          <div class='choice' id='a' onclick="checkAnswer('a')"></div>
+          <div class='choice' id='b' onclick="checkAnswer('b')"></div>
+          <div class='choice' id='c' onclick="checkAnswer('c')"></div>
+      </div>
+      <div id='timer'>
+          <div id='counter'></div>
+          <div id='btimeGauge'></div>
+          <div id='timeGauge'></div>
+      </div>
+      <div id='progress'></div>
+          </div>=
+          <div id='scoreContainer' style='display: none'></div>
+ </div>
+    <br>
 <button id="submit">Get Results</button>
 <div id="Results"></div>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
 
    <script src="./script.js"></script> 
 </body>

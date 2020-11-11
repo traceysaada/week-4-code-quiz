@@ -1,19 +1,25 @@
 
-var 
+var quizContainer = document.getElementById("quiz");
+var resultsContainer = document.getElementById("results");
+var submitButton = document.getElementById("submit");
 
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
 
+function generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton){
 
+function showQuestions(myQuestions, quizContainer){
 
-function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+      var output = [];
+      var answers;
 
-function showQuestions(questions, quizContainer){
+      for var i=0 <myQuestions.length; i++
 
 // code to go here
 
 
 }
 
-function showResults(question, quizContainer, resultsContainer){
+function showResults(myQuestion, quizContainer, resultsContainer){
 
     // code to go here
 
@@ -22,7 +28,7 @@ function showResults(question, quizContainer, resultsContainer){
 
 // show questions
 
-showQuestions(questions, quizContainer);
+showQuestions(myQuestions, quizContainer);
 
 var myQuestions = [
 {
@@ -62,4 +68,7 @@ showResults(question, quizContainer, resultsContainer);
 }
 
 }
-
+ 
+start.addEventListener('click',startquiz)
+start.style.display = 'none';
+renderQuestion()
