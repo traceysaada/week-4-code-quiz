@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Code Quiz</title>
     <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-           <h1> Code Quiz </h1>
+  </head>
+  <body>
+    <h1>Code Quiz</h1>
 
-    <div id="container">   
-    
-     <div id="start">Start Quiz!</div>
- <br>
-    <button id="Start" class="btn btn-primary btn-lg"><h1>?</h1></button> 
-          <div id="Quiz" style="display: none">
-      <div id="question"></div>
-      <div id="qimg"></div>
-      <div id="choices">
-          <div class="choice" id="a" onclick="checkAnswer('a')"></div>
-          <div class="choice" id="b" onclick="checkAnswer('b')"></div>
-          <div class="choice" id="c" onclick="checkAnswer('c')"></div>
+    <div id="container">
+      <div id="openingPage">
+        <div id="start">Click The ? To Start Quiz</div>
+        <br />
+        <button id="Start" class="btn btn-primary btn-lg">
+          <h1>Start the Quiz</h1>
+        </button>
       </div>
+      <div id="Quiz">
+        <div id="question"></div>
+        <div id="choices">
 
-      <div id="timer">
+        </div>
+      </div>
+        <div id="timer">
           <div id="counter"></div>
           <div id="btimeGauge"></div>
           <div id="timeGauge"></div>
+        </div>
+        <div id="progress"></div>
       </div>
-      <div id="progress"></div>
-       </div> 
-          <div id="scoreContainer" style="display: none"></div>
-          </div>
-          <br>
-    <br>
-<button id="submit">Get Results</button>
-<div id="Results"></div>
+    </div>
+    <div id="scoreContainer"></div>
+    <br />
+    <br />
+    <button id="submit">Get Results</button>
+    <div id="Results"></div>
 
-   <script src="./script.js"></script> 
-
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>

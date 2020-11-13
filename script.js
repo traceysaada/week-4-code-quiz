@@ -1,104 +1,79 @@
-
-var quizContainer = document.getElementById("quiz");
-var resultsContainer = document.getElementById("results");
-var submitButton = document.getElementById("submit");
-
-start.addEventListener('click',startquiz)
-renderQuestion()
-
-generateQuiz(questions, quizContainer, resultsContainer, submitButton);{
-
-function showQuestions(questions, quizContainer){
-
-      var output = [];
-      var answers;
-
-      var i=0 <questions.length; i++;{
-
-        answers = [];
-
-        for(letter in questions[i].answers){
-         answers.push
-        }
-          '<label>'
-        + '<input type="radio" name="question'+i+'" value="'+letter+'">' 
-         + letter + ':'
-        + questions[i].answers[letter] 
-        + '</label>'
-          
-   }
-           output.push
-          '<div class=<"question">' + questions[i].question + '</div>'
-         + '<div class="answers">' + answers.join('') + '</div>'    
-      }
-           quizContainer.innerHTML = output.join('');
-
-    //showQuestions(questions, quizContainer);
-// code to go here
-
-    }
-function showResults(questions, quizContainer, resultsContainer){
-
-    // code to go here
- var answerContainers = quizContainer.queryselectorAll('.answers');
-
-var userAnswer = '';
-var numCorrect = 0;
-
-for (var i=0; i<questions.length; i++){
-
-    userAnswer = (answerContainers[i].queryselector('input[name=question'+i+']:checked')||{}).value;
-
-    if(userAnswer===questions[i].correctAnswer){
-   
-        numCorrect++;
-
-    answerContainers[i].style.color ='lightgreen';
-}
-
-else{
-    answerContainers[i].style.color ='red';
-   }
-   resultsContainer.innerHTML = numCorrect + 'out of' + question.length;
-}
-
-resultsContainer.innerHTML = numCorrect + 'out of' + question.length;
-
-              // show questions
-
-showQuestions(questions, quizContainer);
-
-}
+//Declare Questions variable
 var myQuestions = [
-{  
+  {
     question: "what is a boolean",
-
-    answer: {
-        a: "truth value",
-        b: "syntax",
-        c: "link",
-    },
-    correctAnswer: "a"
-},
-{
-        question: "what is an array",
-
-        answers: {
-
-            a: "command",
-            b: "image",
-            c: "list",
-     },
-
-        correctAnswer: "c"       
-    },
+    answers: ["truth value", "syntax", "link"],
+    correctAnswer: "truth value",
+  },
+  {
+    question: "what is an array",
+    answers: ["command", "image", "list"],
+    correctAnswer: "list",
+  },
+  {
+    question: "what is an array",
+    answers: ["command", "image", "list"],
+    correctAnswer: "list",
+  }
 ];
 
-// when user clicks submit, show result
-submitButton.onclick = function(){
+//Declare variables which get the different sections from the html
 
-showResults(questions, quizContainer, resultsContainer);
+var quizContainer = document.getElementById("Quiz");
+var resultsContainer = document.getElementById("results");
+var submitButton = document.getElementById("submit");
+var startQuizButton = document.getElementById("Start");
+
+
+//Index of the question we want to disply when the quiz is started
+var questionIndex = 0; 
+
+//Final score variable to be displayed at the end
+var finalScore = 0; 
+
+function startQuiz() {
+    var openingHtml = document.getElementById("openingPage");
+    openingHtml.style.display = "none"; 
+    quizContainer.style.display = "block"
+    renderQuestions();
 
 }
 
 
+
+function renderQuestions(){
+    var questionBeingAskedArea = document.getElementById("question"); 
+    questionBeingAskedArea.textContent = myQuestions[questionIndex].question;
+    var choicesSection = document.getElementById("choices");
+    choicesSection.innerHTML = "";
+    var choicesArray = myQuestions[questionIndex].answers; 
+    for (var i = 0; i < 3; i++){
+        var choiceButton = document.createElement("button");
+        choiceButton.setAttribute("value", choicesArray[i]);
+        choiceButton.textContent = choicesArray[i];
+        choiceButton.onclick = checkAnswer; 
+        choicesSection.appendChild(choiceButton);
+    }
+}
+
+function checkAnswer(){
+    if (this.value === myQuestions[questionIndex].correctAnswer){
+        alert("Hoorey")
+        finalScore++;
+    }
+    questionIndex++;
+    if (questionIndex === myQuestions.length){
+        endTheQuiz();
+    } else {
+    renderQuestions();
+    }
+}
+
+function endTheQuiz(){
+    
+    quizContainer.style.display = "none";
+    var scoreDisplay = document.getElementById("scoreContainer");
+    scoreDisplay.textContent = `Your final score is: ${finalScore}`;
+}
+
+startQuizButton.onclick = startQuiz
