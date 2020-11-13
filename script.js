@@ -3,39 +3,77 @@ var quizContainer = document.getElementById("quiz");
 var resultsContainer = document.getElementById("results");
 var submitButton = document.getElementById("submit");
 
-generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+start.addEventListener('click',startquiz)
+renderQuestion()
 
-function generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton){
+generateQuiz(questions, quizContainer, resultsContainer, submitButton);{
 
-function showQuestions(myQuestions, quizContainer){
+function showQuestions(questions, quizContainer){
 
       var output = [];
       var answers;
 
-      for var i=0 <myQuestions.length; i++
+      var i=0 <questions.length; i++;{
 
+        answers = [];
+
+        for(letter in questions[i].answers){
+         answers.push
+        }
+          '<label>'
+        + '<input type="radio" name="question'+i+'" value="'+letter+'">' 
+         + letter + ':'
+        + questions[i].answers[letter] 
+        + '</label>'
+          
+   }
+           output.push
+          '<div class=<"question">' + questions[i].question + '</div>'
+         + '<div class="answers">' + answers.join('') + '</div>'    
+      }
+           quizContainer.innerHTML = output.join('');
+
+    //showQuestions(questions, quizContainer);
 // code to go here
 
-
-}
-
-function showResults(myQuestion, quizContainer, resultsContainer){
+    }
+function showResults(questions, quizContainer, resultsContainer){
 
     // code to go here
+ var answerContainers = quizContainer.queryselectorAll('.answers');
 
+var userAnswer = '';
+var numCorrect = 0;
 
+for (var i=0; i<questions.length; i++){
+
+    userAnswer = (answerContainers[i].queryselector('input[name=question'+i+']:checked')||{}).value;
+
+    if(userAnswer===questions[i].correctAnswer){
+   
+        numCorrect++;
+
+    answerContainers[i].style.color ='lightgreen';
 }
 
-// show questions
+else{
+    answerContainers[i].style.color ='red';
+   }
+   resultsContainer.innerHTML = numCorrect + 'out of' + question.length;
+}
 
-showQuestions(myQuestions, quizContainer);
+resultsContainer.innerHTML = numCorrect + 'out of' + question.length;
 
+              // show questions
+
+showQuestions(questions, quizContainer);
+
+}
 var myQuestions = [
-{
+{  
     question: "what is a boolean",
 
-    answers: {
-
+    answer: {
         a: "truth value",
         b: "syntax",
         c: "link",
@@ -46,29 +84,21 @@ var myQuestions = [
         question: "what is an array",
 
         answers: {
-    
+
             a: "command",
             b: "image",
             c: "list",
      },
-    
-        correctAnswer: "c"
 
-
+        correctAnswer: "c"       
     },
 ];
 
-
-// when user clicks submit, show results
-
+// when user clicks submit, show result
 submitButton.onclick = function(){
 
-showResults(question, quizContainer, resultsContainer);
+showResults(questions, quizContainer, resultsContainer);
 
 }
 
-}
- 
-start.addEventListener('click',startquiz)
-start.style.display = 'none';
-renderQuestion()
+
