@@ -11,11 +11,44 @@ var myQuestions = [
     correctAnswer: "list",
   },
   {
-    question: "what is an array",
-    answers: ["command", "image", "list"],
-    correctAnswer: "list",
+    question: "what is an jQuery",
+    answers: ["command", "library", "notebook"],
+    correctAnswer: "library",
+  },
+  {
+    question: "what is a URL",
+    answers: ["Web Page", "code", "app"],
+    correctAnswer: "Web Page",
+  },
+  {
+    question: "how do we style in coding",
+    answers: ["html", "javascript", "css"],
+    correctAnswer: "css",
+  },
+  {
+    question: "what have we used to design in html",
+    answers: ["bootstrap", "the URL", "the Dom"],
+    correctAnswer: "bootstrap",
+  },
+  {
+    question: "the best place to learn coding",
+    answers: ["Man Uni", "ready a book", "watching youtube"],
+    correctAnswer: "Man Uni",
   }
+
 ];
+
+var sec = 45;
+ var time =setInterval(myTimer,1000);
+
+ function myTimer(){
+     document.getElementById("timer").innerHTML = "you have 45 secs to complete Quiz";
+     sec--;
+     if (sec == -1){
+         clearInterval(time);
+         alert("Time out!:(");
+     }
+ }
 
 //Declare variables which get the different sections from the html
 
@@ -23,8 +56,7 @@ var quizContainer = document.getElementById("Quiz");
 var resultsContainer = document.getElementById("results");
 var submitButton = document.getElementById("submit");
 var startQuizButton = document.getElementById("Start");
-
-
+var timerContainer = document.getElementById("timer")
 //Index of the question we want to disply when the quiz is started
 var questionIndex = 0; 
 
@@ -36,10 +68,7 @@ function startQuiz() {
     openingHtml.style.display = "none"; 
     quizContainer.style.display = "block"
     renderQuestions();
-
 }
-
-
 
 function renderQuestions(){
     var questionBeingAskedArea = document.getElementById("question"); 
@@ -73,7 +102,8 @@ function endTheQuiz(){
     
     quizContainer.style.display = "none";
     var scoreDisplay = document.getElementById("scoreContainer");
-    scoreDisplay.textContent = `Your final score is: ${finalScore}`;
+    scoreDisplay.textContent = `Your score out of 7 is: ${finalScore}`;
 }
+
 
 startQuizButton.onclick = startQuiz
