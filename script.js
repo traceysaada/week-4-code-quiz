@@ -37,26 +37,26 @@ var myQuestions = [
   }
 
 ];
-
-var sec = 45;
- var time =setInterval(myTimer,1000);
+//set timeout if questions not answered within a set time
+var sec = 15;
+var time =setInterval(myTimer,1000);
 
  function myTimer(){
-     document.getElementById("timer").innerHTML = "you have 45 secs to complete Quiz";
+  document.getElementById("timer").innerHTML = "You have 15 secs to complete Quiz";
      sec--;
      if (sec == -1){
-         clearInterval(time);
-         alert("Time out!:(");
+        clearInterval(time);
+        alert("YOU ARE OUT OF TIME!");
      }
- }
-
+   }
+        
 //Declare variables which get the different sections from the html
 
 var quizContainer = document.getElementById("Quiz");
 var resultsContainer = document.getElementById("results");
 var submitButton = document.getElementById("submit");
 var startQuizButton = document.getElementById("Start");
-var timerContainer = document.getElementById("timer")
+
 //Index of the question we want to disply when the quiz is started
 var questionIndex = 0; 
 
@@ -87,7 +87,7 @@ function renderQuestions(){
 
 function checkAnswer(){
     if (this.value === myQuestions[questionIndex].correctAnswer){
-        alert("Hoorey")
+        alert("You are Awsome")
         finalScore++;
     }
     questionIndex++;
@@ -103,7 +103,7 @@ function endTheQuiz(){
     quizContainer.style.display = "none";
     var scoreDisplay = document.getElementById("scoreContainer");
     scoreDisplay.textContent = `Your score out of 7 is: ${finalScore}`;
+  
 }
-
 
 startQuizButton.onclick = startQuiz

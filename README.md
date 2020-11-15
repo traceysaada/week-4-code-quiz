@@ -1,5 +1,14 @@
 # 04 Web APIs: Code Quiz
 
+to start I set up html index & inputted all code
+next I did the CSS to see how my page would look
+then followed with the javascipt file
+once the questions & variables where working next stage was to set a timer
+tried various methods of timers but the only one I could get to use with the code I set was a time out & not a countdown clock on the page. I need to study more on how to set up inital coding to be able to do this.
+not able to at the minute so will leave as a timout count down.
+i set up an alert to give the score at the end of the quiz should the questions all be answered before the time out.
+i havent managed to finish the quiz of with a library store for new user or user progress. I still need to study this coding to bring it in to this game.
+
 ## Your Task
 
 As you proceed in your journey to becoming a full-stack web developer, it’s likely that you’ll be asked to complete a coding assessment, perhaps as part of an interview process. A typical coding assessment is a combination of multiple-choice questions and interactive coding challenges. 
